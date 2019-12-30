@@ -1,0 +1,21 @@
+name: GitHub CI
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: debian-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: '"df"'
+        run: df -h
+
+      - name: '"free"'
+        run: free -h
+
+      - name: '"cpuinfo"'
+        run: lscpu
