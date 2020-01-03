@@ -19,3 +19,6 @@ jobs:
 
       - name: '"cpuinfo"'
         run: lscpu
+
+      - name: '"systemd-detect-virt"'
+        run: systemd-detect-virt
