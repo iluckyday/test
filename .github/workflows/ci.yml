@@ -24,4 +24,4 @@ jobs:
         run: systemd-detect-virt
 
       - name: '"kvm"'
-        run: egrep -o ‘(vmx|svm)’ /proc/cpuinfo
+        run: egrep -o '(vmx|svm)' /proc/cpuinfo
