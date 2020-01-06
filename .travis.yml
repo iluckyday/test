@@ -2,8 +2,10 @@ dist: bionic
 
 script:
   - ip address show
-  - df -h 
+  - ss -an
+  - df -h
   - free -h
   - lscpu
   - systemd-detect-virt
   - sh -c "egrep -o '(vmx|svm)' /proc/cpuinfo && echo yes || echo no"
+  - ps -ef
