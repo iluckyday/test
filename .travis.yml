@@ -1,6 +1,7 @@
 dist: bionic
 
 script:
+  - ip address show
   - df -h 
   - free -h
   - lscpu
