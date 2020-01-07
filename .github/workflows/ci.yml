@@ -49,6 +49,9 @@ jobs:
           sleep 1; echo sendkey spc-s-y-s-t-e-m-d-dot-u-n-i-t-equal-m-u-l-t-i-minus-u-s-e-r-dot-t-a-r-g-e-t-spc-s-y-s-t-e-m-d-dot-w-a-n-t-s-equal-s-s-h-dot-s-o-c-k-e-t-ret | telnet 127.0.0.1 1123 || true
           sleep 30
 
+      - name: sendkey to qemu-kali
+        run: echo sendkey w | telnet 127.0.0.1 1123 || true
+
       - name: run command in qemu-kali
         run: ssh -vv -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null 127.0.0.1 -p 1122 -l root whoami
 
