@@ -23,5 +23,27 @@ jobs:
       - name: '"systemd-detect-virt"'
         run: systemd-detect-virt
 
-      - name: '"kvm"'
-        run: sh -c "egrep -o '(vmx|svm)' /proc/cpuinfo && echo yes || echo no"
+      - name: Install required packages
+        run: sudo apt update && sudo apt-get install -y qemu-system-x86 sshpass
+
+      - name: download kali
+        run: |
+          iso=$(curl -skL http://cdimage.kali.org/kali-weekly/ | awk -F'"' '/kali-linux-[0-9]{4}-W[0-9]{2}-light-amd64.iso/ {print $2}')
+          curl -skL -o /tmp/kali.iso http://cdimage.kali.org/kali-weekly/$iso
+
+      - name: run qemu-kali
+        run: sudo qemu-system-x86_64 -daemonize -machine q35,accel=kvm:xen:hax:hvf:whpx:tcg -smp 2 -boot d -cdrom /tmp/kali.iso -m 2048 -monitor telnet:127.0.0.1:1123,server,nowait -netdev user,id=user0,hostfwd=tcp:127.0.0.1:1122-:22 -device virtio-net,netdev=user0
+
+      - name: sendkey to qemu-kali
+        run: |
+          sleep 3; echo sendkey tab | nc -U -n -N 127.0.0.1 1123
+          sleep 1; echo sendkey spc-s-y-s-t-e-m-d-dot-u-n-i-t-equal-m-u-l-t-i-minus-u-s-e-r-dot-t-a-r-g-e-t-spc-s-y-s-t-e-m-d-dot-w-a-n-t-s-e
+qual-s-s-h-dot-s-o-c-k-e-t-ret | nc -n -N 127.0.0.1 1123
+          sleep 30
+
+      - name: run command in qemu-kali
+        run: |
+          sshpass -p toor ssh -t -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null 127.0.0.1 -p 1122 -l root ip address
+          sshpass -p toor ssh -t -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null 127.0.0.1 -p 1122 -l root systemd-detect-virt
+          sleep 1
+          sshpass -p toor ssh -t -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null 127.0.0.1 -p 1122 -l root poweroff -ff
