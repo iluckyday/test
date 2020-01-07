@@ -23,6 +23,15 @@ jobs:
       - name: '"systemd-detect-virt"'
         run: systemd-detect-virt
 
+      - name: Modify sources.list
+        run: |
+          sudo rm -rf /etc/apt/sources.list.d
+          echo deb http://azure.archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse | sudo tee /etc/apt/sources.list
+          echo deb http://azure.archive.ubuntu.com/ubuntu/ bionic-security main restricted universe multiverse | sudo tee -a /etc/apt/sources.list
+          echo deb http://azure.archive.ubuntu.com/ubuntu/ bionic-updates main restricted universe multiverse | sudo tee -a /etc/apt/sources.list
+          echo deb http://azure.archive.ubuntu.com/ubuntu/ bionic-proposed main restricted universe multiverse | sudo tee -a /etc/apt/sources.list
+          echo deb http://azure.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse | sudo tee -a /etc/apt/sources.list
+
       - name: Install required packages
         run: sudo apt update && sudo apt-get install -y qemu-system-x86 sshpass
 
