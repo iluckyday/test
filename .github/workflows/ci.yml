@@ -27,7 +27,7 @@ jobs:
         run: ss -antl
 
       - name: change password
-        run: echo "runner:runner" | chpasswd
+        run: echo "runner:runner" | sudo chpasswd
 
       - name: Modify sources.list
         run: |
