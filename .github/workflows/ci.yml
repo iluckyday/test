@@ -58,7 +58,7 @@ jobs:
       - name: update ngrok config
         run: |
           tee /tmp/ngrok.yml >/dev/null <<EOF
-          authtoken: $NGROK_TOKEN
+          authtoken: ${{ secrets.NGROK_TOKEN }}
           tunnels:
             ssh:
               addr: 127.0.0.1:1122
