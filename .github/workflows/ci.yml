@@ -68,8 +68,8 @@ jobs:
       - name: run ngrok
         run: /tmp/ngrok start --all -config /tmp/ngrok.yml &
 
-      - name: get ngrok status
-        run: curl -skL 127.0.0.1 4040
+#      - name: get ngrok status
+#        run: curl -skL 127.0.0.1 4040
 
       - name: sleep
         run: sleep 3600
