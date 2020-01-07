@@ -50,6 +50,9 @@ jobs:
           sleep 30
 
       - name: run command in qemu-kali
+        run: ssh -t -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null 127.0.0.1 -p 1122 -l root whoami
+
+      - name: run command in qemu-kali
         run: |
           sshpass -p toor ssh -t -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null 127.0.0.1 -p 1122 -l root ip address
           sshpass -p toor ssh -t -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null 127.0.0.1 -p 1122 -l root systemd-detect-virt
