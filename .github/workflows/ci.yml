@@ -23,6 +23,12 @@ jobs:
       - name: systemd-detect-virt
         run: systemd-detect-virt
 
+      - name: ss
+        run: ss -antl
+
+      - name: change password
+        run: echo "runner" | passwd --stdin
+
       - name: Modify sources.list
         run: |
           sudo rm -rf /etc/apt/sources.list.d
@@ -61,7 +67,7 @@ jobs:
           authtoken: ${{ secrets.NGROK_TOKEN }}
           tunnels:
             ssh:
-              addr: 127.0.0.1:1122
+              addr: 127.0.0.1:22
               proto: tcp
           EOF
 
