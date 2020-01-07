@@ -53,7 +53,6 @@ jobs:
         run: |
           curl -skL -o /tmp/ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
           unzip -d /tmp /tmp/ngrok.zip
-          ls -lR /tmp
           chmod +x /tmp/ngrok
 
       - name: update ngrok config
