@@ -34,7 +34,7 @@ jobs:
         run: /tmp/ngrok start --all -config /tmp/ngrok.yml &
 
       - name: get ngrok status
-        run: http://localhost:4040/api/tunnels
+        run: curl http://localhost:4040/api/tunnels
 
       - name: sleep
-        run: sleep 7200
+        run: sleep 21600
