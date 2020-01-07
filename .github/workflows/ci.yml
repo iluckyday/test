@@ -41,7 +41,7 @@ jobs:
           curl -skL -o /tmp/kali.iso http://cdimage.kali.org/kali-weekly/$iso
 
       - name: run qemu-kali
-        run: sudo qemu-system-x86_64 -daemonize -machine q35,accel=kvm:xen:hax:hvf:whpx:tcg -smp 2 -boot d -cdrom /tmp/kali.iso -m 2048 -monitor telnet:127.0.0.1:1123,server,nowait -netdev user,id=user0,hostfwd=tcp:127.0.0.1:1122-:22 -device virtio-net,netdev=user0
+        run: sudo qemu-system-x86_64 -daemonize -machine q35,accel=kvm:xen:hax:hvf:whpx:tcg -smp 2 -boot d -cdrom /tmp/kali.iso -m 2048 -display none -nodefaults -monitor telnet:127.0.0.1:1123,server,nowait -netdev user,id=user0,hostfwd=tcp:127.0.0.1:1122-:22 -device virtio-net,netdev=user0
 
       - name: sendkey to qemu-kali
         run: |
