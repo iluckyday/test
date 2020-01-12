@@ -1,0 +1,21 @@
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+    resource_class: large
+    steps:
+      - checkout
+      - run:
+          name: "Test"
+          command: |
+            - ip address show
+            - ss -an
+            - df -h
+            - free -h
+            - lscpu
+            - systemd-detect-virt
+            - sh -c "egrep -o '(vmx|svm)' /proc/cpuinfo && echo yes || echo no"
+            - ps -ef
+            
+      - run: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
