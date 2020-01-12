@@ -14,6 +14,7 @@ jobs:
             free -h
             lscpu
             systemd-detect-virt
+            egrep -o '(vmx|svm)' /proc/cpuinfo && echo VT:yes || echo VT:no
             ps -ef
             
       - run: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
