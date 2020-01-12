@@ -8,12 +8,12 @@ jobs:
       - run:
           name: "Test"
           command: |
-            - ip address show
-            - ss -an
-            - df -h
-            - free -h
-            - lscpu
-            - systemd-detect-virt
-            - ps -ef
+            ip address show
+            ss -an
+            df -h
+            free -h
+            lscpu
+            systemd-detect-virt
+            ps -ef
             
       - run: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
