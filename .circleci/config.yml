@@ -10,3 +10,4 @@ jobs:
     steps:
       - checkout
       - run: ls -lah
+          shell: cmd.exe
