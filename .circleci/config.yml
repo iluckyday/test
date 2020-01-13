@@ -1,20 +1,12 @@
 version: 2.1
+
+orbs:
+  win: circleci/windows@2.2.0
+
 jobs:
   build:
-    machine:
-      image: ubuntu-1604:201903-01
+    executor:
+      name: win/default
     steps:
       - checkout
-      - run:
-          name: "Test"
-          command: |
-            ip address show
-            ss -an
-            df -h
-            free -h
-            lscpu
-            systemd-detect-virt
-            egrep -o '(vmx|svm)' /proc/cpuinfo && echo VT:yes || echo VT:no
-            ps -ef
-            
-      - run: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
+      - run: ls -lah
