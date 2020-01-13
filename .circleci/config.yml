@@ -7,7 +7,7 @@ jobs:
   build:
     executor:
       name: win/default
+      shell: cmd.exe
     steps:
       - checkout
       - run: ls -lah
-          shell: cmd.exe
