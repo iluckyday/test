@@ -1,6 +1,7 @@
 dist: bionic
 
 script:
+  - cat /etc/apt/source.list
   - ip address show
   - ss -an
   - df -h
