@@ -2,7 +2,10 @@ dist: bionic
 
 script:
   - bash -c "curl -s http://mirrors.ubuntu.com/mirrors.txt | xargs -n1 -I {} sh -c 'echo `curl -r 0-102400 -s -w %{speed_download} -o /dev/null {}/ls-lR.gz` {}' |sort -g -r |head -1| awk '{print $2}' > /tmp/apt.mirror.url"
-  - cat /tmp/apt.mirror.url
+  - sudo sed -i -e "s@http://archive.ubuntu.com/ubuntu/@`cat /tmp/apt.mirror.url`@" -e '/src/d' /etc/apt/sources.list
+  - cat /etc/apt/sources.list
+  - sudo apt-get update
+  - sudo apt-get -qqy install debootstrap kpartx qemu-system-x86 qemu-utils python3-pip
   - ip address show
   - ss -an
   - df -h
