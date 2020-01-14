@@ -1,9 +1,9 @@
 dist: bionic
 
 script:
-  - ls /etc/apt/sources.d
   - cat /etc/apt/sources.list
-  - sudo sed -i -e 's/http:\/\/archive/mirror:\/\/mirrors/' -e 's/http:\/\/security/mirror:\/\/mirrors/' -e 's/\/ubuntu\//\/mirrors.txt/' /etc/apt/sources.list
+  - sudo sed -i '/src/d' /etc/apt/sources.list
+  - sudo sh -c 'mirror=$(curl -s http://mirrors.ubuntu.com/mirrors.txt | xargs -n1 -I {} sh -c 'echo `curl -r 0-102400 -s -w %{speed_download} -o /dev/null {}/ls-lR.gz` {}' |sort -g -r |head -1| awk '{ print $2  }');sed -i -e "s@http://archive.ubuntu.com/ubuntu/@$mirror@\" /etc/apt/sources.list'
   - cat /etc/apt/sources.list
   - sudo apt-get update
   - sudo apt-get -qqy install debootstrap kpartx qemu-system-x86 qemu-utils python3-pip
