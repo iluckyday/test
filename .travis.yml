@@ -1,8 +1,8 @@
 dist: bionic
 
 script:
-  - cat /etc/apt/sources.list
-  - sudo sed -i -e '/src/d' -e 's@http://\(archive\|security\)@mirror://mirrors@' -e 's@\(/ubuntu/\|/ubuntu\)@/mirrors.txt@' /etc/apt/sources.list
+  - ls /etc/apt/sources.list.d
+  - sudo sed -i '/src/d' /etc/apt/sources.list
   - cat /etc/apt/sources.list
   - sudo apt-get update
   - sudo apt-get -qqy install debootstrap kpartx qemu-system-x86 qemu-utils python3-pip
