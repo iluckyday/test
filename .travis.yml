@@ -1,11 +1,6 @@
 dist: bionic
 
 script:
-  - ls /etc/apt/sources.list.d
-  - sudo sed -i '/src/d' /etc/apt/sources.list
-  - cat /etc/apt/sources.list
-  - sudo apt-get update
-  - sudo apt-get -qqy install debootstrap kpartx qemu-system-x86 qemu-utils python3-pip
   - ip address show
   - ss -an
   - df -h
