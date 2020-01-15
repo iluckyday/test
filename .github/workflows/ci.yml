@@ -22,3 +22,6 @@ jobs:
 
       - name: ss
         run: ss -antl
+
+      - name: /tmp
+        run: df -h; ls -al /tmp
