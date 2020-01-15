@@ -1,9 +1,6 @@
-name: GitHub CI
+name: GitHub CI Test
 
-on:
-  push:
-    branches:
-    - master
+on: push
 
 jobs:
   build:
@@ -25,3 +22,11 @@ jobs:
 
       - name: ss
         run: ss -antl
+
+      - name: show sources.list
+        run: |
+          cat /etc/apt/sources.list
+          ls /etc/apt/sources.list.d
+
+      - name: apt update
+        run: apt update
