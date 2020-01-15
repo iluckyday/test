@@ -24,4 +24,4 @@ jobs:
         run: ss -antl
 
       - name: /tmp
-        run: sudo mount -o remount,size=80% tmpfs /tmp; df -h; ls -al /tmp
+        run: sudo mount -o size=80% tmpfs /tmp; df -h; ls -al /tmp
