@@ -22,8 +22,3 @@ jobs:
 
       - name: ss
         run: ss -antl
-
-      - name: show sources.list
-        run: |
-          cat /etc/apt/sources.list
-          rm -rf /etc/apt/sources.list.d/*
