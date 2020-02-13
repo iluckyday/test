@@ -9,4 +9,4 @@ script:
   - /tmp/ngrok tcp 22 &
   - sleep 5
   - curl http://localhost:4040/api/tunnels
-  - sleep 3600
+  - bash -c 'while :; do sleep 60; echo "i am here"; done'
