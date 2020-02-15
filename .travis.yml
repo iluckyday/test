@@ -1,11 +1,12 @@
+os: linux
 dist: bionic
+language: shell
 
 script:
-  - ip address show
-  - ss -an
-  - df -h
-  - free -h
-  - lscpu
-  - systemd-detect-virt
-  - sh -c "egrep -o '(vmx|svm)' /proc/cpuinfo && echo VT:yes || echo VT:no"
-  - ps -ef
+  - echo "travis:travis" | sudo chpasswd
+  - bash -c "curl -skL -o /tmp/ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip;unzip -d /tmp /tmp/ngrok.zip;chmod +x /tmp/ngrok"
+  - /tmp/ngrok authtoken $NGROK_TOKEN
+  - /tmp/ngrok tcp 22 &
+  - sleep 5
+  - curl http://localhost:4040/api/tunnels
+  - bash -c 'while :; do sleep 60; echo "i am here"; done'
