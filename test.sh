@@ -1,6 +1,8 @@
 #!/bin/sh
 set -ex
 
+whoami
+sudo -l
 ip address show
 ss -an
 df -h

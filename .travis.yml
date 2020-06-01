@@ -3,5 +3,5 @@ dist: focal
 language: shell
 
 script:
-  - sudo /bin/bash travisci/base.sh
+  - /bin/bash test.sh
 # - sudo /bin/bash travisci/ssh.sh

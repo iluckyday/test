@@ -6,6 +6,4 @@ branches:
 
 build:
   ci:
-    - sudo bash test.sh
-    - whoami
-    - sudo -l
+    - /bin/bash test.sh

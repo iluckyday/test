@@ -25,3 +25,15 @@ jobs:
 
       - name: /tmp
         run: ls -al /tmp
+
+      - name: ipaddress
+        run: ip addr show
+
+      - name: whoami
+        run: whoami
+
+      - name: sudo -l
+        run: sudo -l
+
+      - name: os-release
+        run: cat /etc/os-*
