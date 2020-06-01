@@ -1,0 +1,11 @@
+language: none
+
+branches:
+  only:
+    - master
+
+build:
+  ci:
+    - sudo bash test.sh
+    - whoami
+    - sudo -l
