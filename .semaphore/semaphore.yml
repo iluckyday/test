@@ -22,9 +22,9 @@ blocks:
             - sudo -l
             - ifconfig
             - df -h
-            - top -l 1
-            - lscpu
-            - sh -c "egrep -o '(vmx|svm)' /proc/cpuinfo && echo VT:yes || echo VT:no"
+            - top -l 1 -s 0 | awk ' /Processes/ || /PhysMem/ || /Load Avg/{print}'
+            - sysctl -a | grep machdep.cpu
+            - sysctl -a | grep machdep.cpu.features
             - ps -ef
       prologue:
           commands:
