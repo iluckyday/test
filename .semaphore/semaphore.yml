@@ -1,37 +1,23 @@
 version: v1.0
-name: test
+name: ssh
 agent:
   machine:
    type: a1-standard-4
    os_image: macos-mojave-xcode11
-
-#   type: e1-standard-2
-#  os_image: ubuntu1804
 
 execution_time_limit:
   hours: 24
 
 
 blocks:
- - name: Inspect environment
+ - name: ssh
    task:
       jobs:
-        - name: test
+        - name: ssh
           commands:
-            - cat /System/Library/CoreServices/SystemVersion.plist
-            - printenv
-            - pwd
-            - whoami
-            - sudo -l
-            - ifconfig
-            - df -h
-            - top -l 1 -s 0 | awk ' /Processes/ || /PhysMem/ || /Load Avg/{print}'
-            - sysctl -a | grep machdep.cpu
-            - sysctl -a | grep machdep.cpu.features
-            - ps -ef
+            - sh .semaphore/ssh.sh
       prologue:
           commands:
             - checkout
-      env_vars:
-           - name: PI
-             value: "3.14159"
+      secrets:
+        - name: ngrok_token
