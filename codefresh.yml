@@ -13,5 +13,4 @@ steps:
       - df -h
       - lscpu
       - lsmem
-      - ps -ef
       - mount
