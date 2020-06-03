@@ -8,6 +8,9 @@ agent:
 #   type: e1-standard-2
 #  os_image: ubuntu1804
 
+execution_time_limit:
+  hours: 24
+
 
 blocks:
  - name: Inspect environment
