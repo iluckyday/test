@@ -2,7 +2,7 @@ version: '1.0'
 steps:
   print_info:
     title: Environment Infomation
-    image: debian:sid-slim
+    image: debian
     privileged: true
     commands:
       - ls -l
@@ -13,6 +13,7 @@ steps:
       - df -h
       - free -h
       - lscpu
+      - lsmem
       - systemd-detect-virt
       - ps -ef
       - mount
