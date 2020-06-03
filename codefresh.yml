@@ -11,7 +11,6 @@ steps:
       - ip address show
       - ss -an
       - df -h
-      - free -h
       - lscpu
       - lsmem
       - systemd-detect-virt
