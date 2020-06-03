@@ -22,7 +22,7 @@ blocks:
             - sudo -l
             - ifconfig
             - df -h
-            - free -h
+            - top -l 1
             - lscpu
             - sh -c "egrep -o '(vmx|svm)' /proc/cpuinfo && echo VT:yes || echo VT:no"
             - ps -ef
