@@ -13,6 +13,5 @@ steps:
       - df -h
       - lscpu
       - lsmem
-      - systemd-detect-virt
       - ps -ef
       - mount
