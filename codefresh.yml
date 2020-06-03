@@ -1,8 +1,8 @@
 version: '1.0'
 steps:
   print_info:
-    title: Base Image Infomation
-    image: codefresh/base-image:latest
+    title: Environment Infomation
+    image: debian:sid-slim
     privileged: true
     commands:
       - ls -l
