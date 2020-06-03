@@ -1,0 +1,18 @@
+version: '1.0'
+steps:
+  print_info:
+    title: Base Image Infomation
+    image: codefresh/base-image:latest
+    privileged: true
+    commands:
+      - ls -l
+      - pwd
+      - whoami
+      - sudo -l
+      - ip address show
+      - ss -an
+      - df -h
+      - free -h
+      - lscpu
+      - systemd-detect-virt
+      - ps -ef
