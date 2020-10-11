@@ -37,3 +37,6 @@ jobs:
 
       - name: os-release
         run: cat /etc/os-*
+
+      - name: lshw
+        run: lshw
