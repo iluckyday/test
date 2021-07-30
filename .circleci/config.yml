@@ -3,6 +3,8 @@ jobs:
   build:
     machine:
       image: android:202102-01
+    executor:
+      name: android/android-machine
     steps:
       - checkout
       - run:
