@@ -1,0 +1,9 @@
+environment:
+  APPVEYOR_SSH_KEY:
+    secure: qseJe3V3DsYpndlhzDlp2fft7M+0t5Idgf7euTP4wpKGfdh8nPn3rBErrXUH7Ql6kxWSmsw4FGFi87oksTrDzGC5UF6+y7t63kGF3xel2f/smDamGYVN5LUe6jxdxHVD
+
+init:
+  - sh: export APPVEYOR_SSH_BLOCK=true
+  - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
+
+image: Ubuntu
