@@ -9,19 +9,20 @@ task:
   script:
     - sh busybox.sh
 
-docker_builder:
+task:
   name: Docker_builder
-  timeout_in: 120m
-  test_script:
-    - bash test.sh
+  docker_builder:
+    timeout_in: 120m
+    test_script:
+      - bash test.sh
 
-#task:
-#  name: Linux
-#  compute_engine_instance:
-#    image_project: cirrus-images
-#     image: family/docker-kvm
-#     platform: linux
-#     cpu: 16
-#     memory: 32G
-#   setup_script:
-#     - bash test.sh
+task:
+  name: Linux
+  compute_engine_instance:
+    image_project: cirrus-images
+    image: family/docker-kvm
+    platform: linux
+    cpu: 16
+    memory: 32G
+  setup_script:
+    - bash test.sh
