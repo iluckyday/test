@@ -21,7 +21,7 @@ task:
     image_project: cirrus-images
     image: family/docker-kvm
     platform: linux
-    cpu: 16
+    cpu: 8
     memory: 32G
   setup_script:
     - bash test.sh
