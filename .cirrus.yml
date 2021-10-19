@@ -8,8 +8,8 @@ container:
     - bash test.sh
 
 
-docker_builder:
-  name: Test
-  timeout_in: 120m
-  test_script:
-    - bash test.sh
+#docker_builder:
+#  name: Test
+#  timeout_in: 120m
+#  test_script:
+#    - bash test.sh
