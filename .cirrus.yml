@@ -1,8 +1,15 @@
-docker_builder:
-  name: Test
+container:
+  image: debian
   cpu: 16
   memory: 32G
   kvm: true
+  timeout_in: 120m
+  test_script:
+    - bash test.sh
+
+
+docker_builder:
+  name: Test
   timeout_in: 120m
   test_script:
     - bash test.sh
