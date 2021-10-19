@@ -1,13 +1,13 @@
 container:
-  name: Container
   image: busybox
   cpu: 8
   memory: 32G
   kvm: true
   timeout_in: 120m
 task:
- script:
-    - bash busybox.sh
+  name: Container
+  script:
+    - sh busybox.sh
 
 docker_builder:
   name: Docker_builder
