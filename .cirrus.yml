@@ -18,7 +18,7 @@ task:
   name: Linux
   compute_engine_instance:
     image_project: cirrus-images
-     image: family/docker-kvm
+     image: debian
      platform: linux
      cpu: 16
      memory: 32G
