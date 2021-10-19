@@ -1,11 +1,11 @@
-container:
-  image: busybox
-  cpu: 8
-  memory: 32G
-  kvm: true
-  timeout_in: 120m
 task:
   name: Container
+  container:
+    image: busybox
+    cpu: 8
+    memory: 32G
+    kvm: true
+    timeout_in: 120m
   script:
     - sh busybox.sh
 
