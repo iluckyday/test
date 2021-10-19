@@ -1,6 +1,7 @@
 #!/bin/sh
 set -ex
 
+cat /etc/os-*
 whoami
 sudo -l
 ip address show
