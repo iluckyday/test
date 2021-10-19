@@ -1,15 +1,16 @@
 container:
-  image: debian
+  name: Container
+  image: busybox
   cpu: 8
   memory: 32G
   kvm: true
   timeout_in: 120m
 task:
  script:
-    - bash test.sh
+    - bash busybox.sh
 
 docker_builder:
-  name: Test
+  name: Docker_builder
   timeout_in: 120m
   test_script:
     - bash test.sh
