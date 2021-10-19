@@ -4,12 +4,12 @@ container:
   memory: 32G
   kvm: true
   timeout_in: 120m
-  test_script:
+task:
+ script:
     - bash test.sh
 
-
-#docker_builder:
-#  name: Test
-#  timeout_in: 120m
-#  test_script:
-#    - bash test.sh
+docker_builder:
+  name: Test
+  timeout_in: 120m
+  test_script:
+    - bash test.sh
