@@ -9,12 +9,11 @@ task:
   script:
     - sh busybox.sh
 
-task:
+docker_builder:
   name: Docker_builder
-  docker_builder:
-    timeout_in: 120m
-    test_script:
-      - bash test.sh
+  timeout_in: 120m
+  test_script:
+    - bash test.sh
 
 task:
   name: Linux
